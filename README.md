@@ -1,5 +1,5 @@
 # reddit-pipeline
 
-!RedditDataEngineering.png
+![Alt text](RedditDataEngineering.png?raw=true "Title")
 
 
