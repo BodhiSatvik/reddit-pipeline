@@ -1,6 +1,7 @@
 import os
 import sys
 from datetime import datetime
+from pipelines.aws_s3_pipeline import upload_s3_pipeline
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -38,11 +39,11 @@ extract = PythonOperator(
     dag=dag
 )
 
-# # upload to s3
-# upload_s3 = PythonOperator(
-#     task_id='s3_upload',
-#     python_callable=upload_s3_pipeline,
-#     dag=dag
-# )
+# upload to s3
+upload_s3 = PythonOperator(
+    task_id='s3_upload',
+    python_callable=upload_s3_pipeline,
+    dag=dag
+)
 
-# extract >> upload_s3
+extract >> upload_s3
